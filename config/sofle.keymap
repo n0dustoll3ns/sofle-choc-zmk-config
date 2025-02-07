@@ -55,7 +55,7 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        default {
             display-name = "default";
 
             // ------------------------------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@
                 <&inc_dec_kp LC(PG_DN) LC(PG_UP)>;
         };
 
-        lower_layer {
+        lower {
             display-name = "lower";
 
             // TODO: Some binds are waiting for shifted keycode support.
@@ -102,7 +102,7 @@
                 <&inc_dec_kp LC(PG_DN) LC(PG_UP)>;
         };
 
-        raise_layer {
+        raise {
             display-name = "raise";
 
             // ------------------------------------------------------------------------------------------------------------
@@ -123,7 +123,7 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
         };
 
-        adjust_layer {
+        adjust {
             // ----------------------------------------------------------------------------------------------------------------------------
             // | BTCLR  |  BT1    |  BT2    |   BT3   |   BT4   |   BT5   |                  |      |      |       |      |       |       |
             // | EXTPWR | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |       |
@@ -141,7 +141,7 @@
             >;
         };
 
-        layer_4 {
+        default2 {
             display-name = "default2";
             bindings = <
 &kp ESCAPE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                           &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp BACKSPACE
@@ -156,7 +156,7 @@
                 <&inc_dec_kp LC(PG_DN) LC(PG_UP)>;
         };
 
-        layer_5 {
+        lower2 {
             display-name = "lower2";
             bindings = <
 &kp F1      &kp F2    &kp F3       &kp F4     &kp F5     &kp F6                               &kp F7        &kp F8           &kp F9           &kp F10          &trans     &kp BACKSPACE
@@ -171,7 +171,7 @@
                 <&inc_dec_kp LC(PG_DN) LC(PG_UP)>;
         };
 
-        layer_6 {
+        raise2 {
             display-name = "raise2";
             bindings = <
 &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &kp F7     &kp F8        &kp F9    &kp F10        &kp F11   &kp F12
@@ -186,13 +186,13 @@
                 <&inc_dec_kp PG_UP PG_DN>;
         };
 
-        layer_7 {
+        adjust2 {
             display-name = "adjust2";
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none   &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &tog 0  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none           &none   &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none           &none   &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none  &none   &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &to 0  &trans  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none           &none  &none   &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none           &none  &none   &none
                                     &none            &none            &none            &none            &none              &none  &none  &none  &none           &none
             >;
         };
