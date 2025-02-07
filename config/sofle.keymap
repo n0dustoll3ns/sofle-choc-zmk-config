@@ -36,6 +36,22 @@
 
     right_encoder: encoder_right { steps = <40>; };
 
+    macros {
+        nonEquals: nonEquals {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL &kp EQUAL>;
+            label = "EXCL";
+        };
+
+        arrowFunc: arrowFunc {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GT>;
+            label = "ARROWFUNC";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -74,11 +90,11 @@
             //               |     |      |      |      |        |  |       |      |       |       |      |
 
             bindings = <
-&kp F1     &kp F2    &kp F3       &kp F4     &kp F5     &kp F6                               &kp F7        &kp F8           &kp F9           &kp F10          &trans     &kp BACKSPACE
-&kp GRAVE  &kp LPAR  &kp PERCENT  &kp UNDER  &kp CARET  &kp RIGHT_BRACKET                    &kp MINUS     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp ASTRK  &trans
-&trans     &kp LBKT  &kp AT       &kp HASH   &kp DLLR   &kp PRCNT                            &kp PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp FSLH   &kp PIPE
-&trans     &kp LBRC  &kp MINUS    &kp PLUS   &kp EXCL   &kp EQUAL          &trans    &trans  &kp KP_EQUAL  &kp KP_N1        &kp KP_NUMBER_2  &kp KP_N3        &kp BSLH   &trans
-                     &trans       &trans     &trans     &trans             &trans    &trans  &trans        &trans           &kp KP_N0        &trans
+&kp F1      &kp F2    &kp F3       &kp F4     &kp F5     &kp F6                               &kp F7        &kp F8           &kp F9           &kp F10          &trans     &kp BACKSPACE
+&nonEquals  &kp LPAR  &kp PERCENT  &kp UNDER  &kp CARET  &kp RIGHT_BRACKET                    &kp MINUS     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp ASTRK  &kp DEL
+&arrowFunc  &kp LBKT  &kp AT       &kp HASH   &kp DLLR   &kp PRCNT                            &kp PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp FSLH   &kp PIPE
+&trans      &kp LBRC  &kp MINUS    &kp PLUS   &kp EXCL   &kp EQUAL          &trans    &trans  &kp KP_EQUAL  &kp KP_N1        &kp KP_NUMBER_2  &kp KP_N3        &kp BSLH   &trans
+                      &trans       &trans     &trans     &trans             &trans    &trans  &trans        &trans           &kp KP_N0        &trans
             >;
 
             sensor-bindings =
@@ -97,8 +113,8 @@
             //                |      |       |       |      |      |  |      |      |      |       |      |
 
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &kp F7     &kp F8        &kp F9    &kp F10        &kp F11   &kp BACKSPACE
-&trans  &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp LPAR  &kp F12
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &kp F7     &kp F8        &kp F9    &kp F10        &kp F11   &kp F12
+&trans  &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp LPAR  &kp DELETE
 &trans  &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                        &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &kp LBKT  &trans
 &trans  &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans        &trans    &trans  &trans     &kp LA(LEFT)  &trans    &kp LA(RIGHT)  &kp LBRC  &trans
                       &trans        &trans        &trans        &trans        &trans    &trans  &trans     &trans        &trans    &trans
@@ -117,10 +133,10 @@
 
             display-name = "adjust";
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none           &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none           &none  &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none   &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &tog 4  &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none           &none   &none  &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none           &none   &none  &none
                                     &none            &none            &none            &none            &none              &none  &none  &none  &none           &none
             >;
         };
@@ -143,11 +159,11 @@
         layer_5 {
             display-name = "lower";
             bindings = <
-&kp F1     &kp F2    &kp F3       &kp F4     &kp F5     &kp F6                               &kp F7        &kp F8           &kp F9           &kp F10          &trans     &kp BACKSPACE
-&kp GRAVE  &kp LPAR  &kp PERCENT  &kp UNDER  &kp CARET  &kp RIGHT_BRACKET                    &kp MINUS     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp ASTRK  &trans
-&trans     &kp LBKT  &kp AT       &kp HASH   &kp DLLR   &kp PRCNT                            &kp PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp FSLH   &kp PIPE
-&trans     &kp LBRC  &kp MINUS    &kp PLUS   &kp EXCL   &kp EQUAL          &trans    &trans  &kp KP_EQUAL  &kp KP_N1        &kp KP_NUMBER_2  &kp KP_N3        &kp BSLH   &trans
-                     &trans       &trans     &trans     &trans             &trans    &trans  &trans        &trans           &kp KP_N0        &trans
+&kp F1      &kp F2    &kp F3       &kp F4     &kp F5     &kp F6                               &kp F7        &kp F8           &kp F9           &kp F10          &trans     &kp BACKSPACE
+&nonEquals  &kp LPAR  &kp PERCENT  &kp UNDER  &kp CARET  &kp RIGHT_BRACKET                    &kp MINUS     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp ASTRK  &kp DEL
+&arrowFunc  &kp LBKT  &kp AT       &kp HASH   &kp DLLR   &kp PRCNT                            &kp PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp FSLH   &kp PIPE
+&trans      &kp LBRC  &kp MINUS    &kp PLUS   &kp EXCL   &kp EQUAL          &trans    &trans  &kp KP_EQUAL  &kp KP_N1        &kp KP_NUMBER_2  &kp KP_N3        &kp BSLH   &trans
+                      &trans       &trans     &trans     &trans             &trans    &trans  &trans        &trans           &kp KP_N0        &trans
             >;
 
             sensor-bindings =
@@ -158,8 +174,8 @@
         layer_6 {
             display-name = "raise";
             bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &kp F7     &kp F8        &kp F9    &kp F10        &kp F11   &kp BACKSPACE
-&trans  &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp LPAR  &kp F12
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &kp F7     &kp F8        &kp F9    &kp F10        &kp F11   &kp F12
+&trans  &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp LPAR  &kp DEL
 &trans  &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                        &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &kp LBKT  &trans
 &trans  &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans        &trans    &trans  &trans     &kp LA(LEFT)  &trans    &kp LA(RIGHT)  &kp LBRC  &trans
                       &trans        &trans        &trans        &trans        &trans    &trans  &trans     &trans        &trans    &trans
@@ -173,10 +189,10 @@
         layer_7 {
             display-name = "adjust";
             bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none  &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &none  &none  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none           &none  &none  &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none           &none  &none  &none
+&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none   &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &tog 0  &none  &none
+&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none           &none   &none  &none
+&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none           &none   &none  &none
                                     &none            &none            &none            &none            &none              &none  &none  &none  &none           &none
             >;
         };
