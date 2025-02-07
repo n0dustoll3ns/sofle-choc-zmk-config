@@ -142,13 +142,13 @@
         };
 
         layer_4 {
-            display-name = "default";
+            display-name = "default2";
             bindings = <
 &kp ESCAPE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                           &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp BACKSPACE
 &kp GRAVE   &kp Q   &kp W     &kp E     &kp R      &kp T                            &kp Y   &kp U      &kp I      &kp O     &kp P     &kp LBKT
 &kp TAB     &kp A   &kp S     &kp D     &kp F      &kp G                            &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
 &kp LSHFT   &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &none      &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                    &kp LGUI  &kp LALT  &kp LCTRL  &mo 1   &kp SPACE     &kp ENTER  &mo 2   &kp RCTRL  &kp RALT   &kp RGUI
+                    &kp LGUI  &kp LALT  &kp LCTRL  &mo 5   &kp SPACE     &kp ENTER  &mo 6   &kp RCTRL  &kp RALT   &kp RGUI
             >;
 
             sensor-bindings =
@@ -157,7 +157,7 @@
         };
 
         layer_5 {
-            display-name = "lower";
+            display-name = "lower2";
             bindings = <
 &kp F1      &kp F2    &kp F3       &kp F4     &kp F5     &kp F6                               &kp F7        &kp F8           &kp F9           &kp F10          &trans     &kp BACKSPACE
 &nonEquals  &kp LPAR  &kp PERCENT  &kp UNDER  &kp CARET  &kp RIGHT_BRACKET                    &kp MINUS     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp ASTRK  &kp DEL
@@ -172,7 +172,7 @@
         };
 
         layer_6 {
-            display-name = "raise";
+            display-name = "raise2";
             bindings = <
 &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &kp F7     &kp F8        &kp F9    &kp F10        &kp F11   &kp F12
 &trans  &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp LPAR  &kp DEL
@@ -187,7 +187,7 @@
         };
 
         layer_7 {
-            display-name = "adjust";
+            display-name = "adjust2";
             bindings = <
 &bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none   &none  &none
 &ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &tog 0  &none  &none
