@@ -79,9 +79,13 @@
         Ne_w_null_opt: Ne_w_null_opt {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp EXCLAMATION &kp EQUAL &mo 4>;
+            bindings =
+                <&kp EXCLAMATION &kp EQUAL>,
+                <&macro_wait_time 999>,
+                <&to 4 &to 0>;
+
             label = "NE_W_NULL_OPT";
-            tap-ms = <999>;
+            tap-ms = <0>;
         };
 
         prnul: null {
