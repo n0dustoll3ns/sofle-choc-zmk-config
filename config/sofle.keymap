@@ -79,16 +79,12 @@
         Ne_w_null_opt: Ne_w_null_opt {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&kp EXCLAMATION &kp EQUAL &tog 4>,
-                <&macro_wait_time 999>,
-                <&tog 0>;
-
+            bindings = <&kp EXCLAMATION &kp EQUAL &mo 4>;
             label = "NE_W_NULL_OPT";
             tap-ms = <999>;
         };
 
-        null: null {
+        prnul: null {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp N &kp U &kp L &kp L &tog 0>;
@@ -188,7 +184,7 @@
         helper-switch-window-layer {
             bindings = <
 &trans  &trans  &kp NUMBER_2  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&null   &trans  &trans        &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&prnul  &trans  &trans        &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans        &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
