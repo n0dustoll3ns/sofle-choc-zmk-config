@@ -80,19 +80,18 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&kp EXCLAMATION &kp EQUAL>,
-                <&macro_tap>,
-                <&tog 4>,
+                <&kp EXCLAMATION &kp EQUAL &tog 4>,
                 <&macro_wait_time 999>,
                 <&tog 0>;
 
             label = "NE_W_NULL_OPT";
+            tap-ms = <999>;
         };
 
         null: null {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp N &kp U &kp L &kp L>;
+            bindings = <&kp N &kp U &kp L &kp L &tog 0>;
             label = "NULL";
         };
     };
