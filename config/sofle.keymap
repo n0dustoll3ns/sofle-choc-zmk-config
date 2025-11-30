@@ -27,8 +27,8 @@
         };
 
         adjust2 {
-            if-layers = <5 6>;
-            then-layer = <7>;
+            if-layers = <4 4>;
+            then-layer = <4>;
         };
     };
 
@@ -56,9 +56,9 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&tog 8 &kt LGUI>,
+                <&tog 4 &kt LGUI>,
                 <&macro_pause_for_release>,
-                <&tog 8 &kt LGUI>;
+                <&tog 4 &kt LGUI>;
 
             label = "MACOS_SWITCH_HELPER";
         };
@@ -68,11 +68,32 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&tog 8 &kt LALT>,
+                <&tog 4 &kt LALT>,
                 <&macro_pause_for_release>,
-                <&tog 8 &kt LALT>;
+                <&tog 4 &kt LALT>,
+                <&macro_press>;
 
             label = "WIN_SWIRTCH_HELPER";
+        };
+
+        Ne_w_null_opt: Ne_w_null_opt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&kp EXCLAMATION &kp EQUAL>,
+                <&macro_tap>,
+                <&tog 4>,
+                <&macro_wait_time 999>,
+                <&tog 0>;
+
+            label = "NE_W_NULL_OPT";
+        };
+
+        null: null {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N &kp U &kp L &kp L>;
+            label = "NULL";
         };
     };
 
@@ -158,65 +179,9 @@
             display-name = "adjust";
             bindings = <
 &bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none   &none  &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &tog 9  &none  &none
+&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &tog 5  &none  &none
 &none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none           &none   &none  &none
 &none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none           &none   &none  &none
-                                    &none            &none            &none            &none            &none              &none  &none  &none  &none           &none
-            >;
-        };
-
-        default2 {
-            display-name = "default2";
-            bindings = <
-&kp ESCAPE  &kp N1  &kp N2    &kp N3    &kp N4     &kp N5                           &kp N6  &kp N7     &kp N8     &kp N9    &kp N0    &kp BACKSPACE
-&kp GRAVE   &kp Q   &kp W     &kp E     &kp R      &kp T                            &kp Y   &kp U      &kp I      &kp O     &kp P     &kp LBKT
-&kp TAB     &kp A   &kp S     &kp D     &kp F      &kp G                            &kp H   &kp J      &kp K      &kp L     &kp SEMI  &kp SQT
-&kp LSHFT   &kp Z   &kp X     &kp C     &kp V      &kp B   &kp C_MUTE    &none      &kp N   &kp M      &kp COMMA  &kp DOT   &kp FSLH  &kp RSHFT
-                    &kp LGUI  &kp LALT  &kp LCTRL  &mo 5   &kp SPACE     &kp ENTER  &mo 6   &kp RCTRL  &kp RALT   &kp RGUI
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp LC(PG_DN) LC(PG_UP)>;
-        };
-
-        lower2 {
-            display-name = "lower2";
-            bindings = <
-&kp F1      &kp F2    &kp F3       &kp F4     &kp F5     &kp F6                               &kp F7        &kp F8           &kp F9           &kp F10          &trans     &kp BACKSPACE
-&nonEquals  &kp LPAR  &kp PERCENT  &kp UNDER  &kp CARET  &kp RIGHT_BRACKET                    &kp MINUS     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp ASTRK  &kp DEL
-&arrowFunc  &kp LBKT  &kp AT       &kp HASH   &kp DLLR   &kp PRCNT                            &kp PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp FSLH   &kp PIPE
-&trans      &kp LBRC  &kp MINUS    &kp PLUS   &kp EXCL   &kp EQUAL          &trans    &trans  &kp KP_EQUAL  &kp KP_N1        &kp KP_NUMBER_2  &kp KP_N3        &kp BSLH   &trans
-                      &trans       &trans     &trans     &trans             &trans    &trans  &trans        &trans           &kp KP_N0        &trans
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp LC(PG_DN) LC(PG_UP)>;
-        };
-
-        raise2 {
-            display-name = "raise2";
-            bindings = <
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &kp F7     &kp F8        &kp F9    &kp F10        &kp F11   &kp F12
-&trans  &kp INS       &kp PSCRN     &kp K_CMENU   &trans        &trans                          &kp PG_UP  &kp LG(LEFT)  &kp UP    &kp LG(RIGHT)  &kp LPAR  &kp DEL
-&trans  &kp LALT      &kp LCTRL     &kp LSHFT     &trans        &kp CLCK                        &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &kp LBKT  &trans
-&trans  &kp K_UNDO    &kp K_CUT     &kp K_COPY    &kp K_PASTE   &trans        &trans    &trans  &trans     &kp LA(LEFT)  &trans    &kp LA(RIGHT)  &kp LBRC  &trans
-                      &trans        &trans        &trans        &trans        &trans    &trans  &trans     &trans        &trans    &trans
-            >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
-        };
-
-        adjust2 {
-            display-name = "adjust2";
-            bindings = <
-&bt BT_CLR         &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                               &none  &none  &none           &none  &none   &none
-&ext_power EP_TOG  &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &rgb_ug RGB_EFF                            &none  &none  &studio_unlock  &to 0  &trans  &none
-&none              &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &none            &none            &none                                      &none  &none  &none           &none  &none   &none
-&none              &none            &none            &none            &none            &none            &rgb_ug RGB_TOG    &none  &none  &none  &none           &none  &none   &none
                                     &none            &none            &none            &none            &none              &none  &none  &none  &none           &none
             >;
         };
@@ -224,7 +189,7 @@
         helper-switch-window-layer {
             bindings = <
 &trans  &trans  &kp NUMBER_2  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans        &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&null   &trans  &trans        &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans        &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
                 &trans        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
