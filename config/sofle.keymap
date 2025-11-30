@@ -81,8 +81,10 @@
             #binding-cells = <0>;
             bindings =
                 <&kp EXCLAMATION &kp EQUAL>,
-                <&macro_wait_time 999>,
-                <&to 4 &to 0>;
+                <&macro_tap_time 999>,
+                <&to 4>,
+                <&macro_tap_time 10>,
+                <&to 0>;
 
             label = "NE_W_NULL_OPT";
             tap-ms = <0>;
@@ -91,7 +93,7 @@
         prnul: null {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp N &kp U &kp L &kp L &tog 0>;
+            bindings = <&kp SPACE &kp N &kp U &kp L &kp L &tog 0>;
             label = "NULL";
         };
     };
